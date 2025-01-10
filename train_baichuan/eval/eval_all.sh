@@ -21,6 +21,7 @@ for model in "${!model_to_output_dir[@]}"; do
     for value in "${replacement_values[@]}"; do
         # Generate the new model path by replacing 160 with the current value
         new_model_path="${model/-160/-${value}}"
+        # Generate the new output directory path by replacing "craft160" with "craft${value}"
         new_output_dir="${model_to_output_dir[$model]/craft160/craft${value}}"
 
         echo "Running evaluation for model: $new_model_path with output directory: $new_output_dir"

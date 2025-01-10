@@ -58,15 +58,18 @@ def plot_statistics(statistics_list, labels):
     plt.ylabel('Percentage')
     plt.legend()
     plt.title("Classification Statistics")
-    plt.savefig('res/statistics.png')
+    plt.savefig('res/statistics_epoch.png')
 
 # 主程序部分，读取文件并生成图表
 file_paths = {
     'base': 'res/MMLU_ID_base_raw.json',
-    'naive': 'res/MMLU_ID_naive_raw.json',
-    'craft': 'res/MMLU_ID_craft_raw.json',
+    'craft80': 'res/MMLU_ID_craft80_raw.json',
+    'craft160': 'res/MMLU_ID_craft160_raw.json',
+    'craft240': 'res/MMLU_ID_craft240_raw.json',
+    'craft320': 'res/MMLU_ID_craft320_raw.json',
+    'craft400': 'res/MMLU_ID_craft400_raw.json',
 }
-labels = ['base', 'naive', 'r-tuning', 'craft']  # 更新 labels 'craft160', 
+labels = list(file_paths.keys())  # 更新 labels 'craft160', 
 statistics_list = []
 
 # 加载 base 数据
@@ -99,16 +102,16 @@ for label in labels[1:]:  # 跳过 base
         })
 # [0.13817138171381713, 0.45223452234522343, 0.24723247232472326, 0.16236162361623616]
 # 添加 r-tuning 的数据
-r_tuning_data = {
-    "correct": 0.13817138171381713,
-    "refuse": 0.45223452234522343,
-    "over_refuse": 0.24723247232472326,
-    "wrong": 0.16236162361623616
-}
-statistics_list.append(r_tuning_data)
-temp  = statistics_list[2]
-statistics_list[2] = statistics_list[3]
-statistics_list[3] = temp
+# r_tuning_data = {
+#     "correct": 0.13817138171381713,
+#     "refuse": 0.45223452234522343,
+#     "over_refuse": 0.24723247232472326,
+#     "wrong": 0.16236162361623616
+# }
+# statistics_list.append(r_tuning_data)
+# temp  = statistics_list[2]
+# statistics_list[2] = statistics_list[3]
+# statistics_list[3] = temp
 
 # 绘制图表
 plot_statistics(statistics_list, labels)
