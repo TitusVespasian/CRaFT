@@ -5,8 +5,8 @@ declare -A model_to_output_dir=(
     
     ["/home/xuzhiyu/llm_tune/models/baichuan_full_craft-160"]="craft160"
     # ["/home/xuzhiyu/llm_tune/models/baichuan_full_craft"]="craft"
-    ["/home/xuzhiyu/tempModel/Baichuan-7B"]="base"
-    ["/home/xuzhiyu/llm_tune/models/baichuan_full_naive"]="naive"
+    # ["/home/xuzhiyu/tempModel/Baichuan-7B"]="base"
+    # ["/home/xuzhiyu/llm_tune/models/baichuan_full_naive"]="naive"
 )
 
 # Define the evaluation scripts
